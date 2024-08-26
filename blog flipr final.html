@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 1em;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 1em;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        header {
+            background-color: #f4f4f4;
+            padding: 2em;
+            text-align: center;
+        }
+
+        section {
+            padding: 2em;
+        }
+
+        .blog-list {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .blog-post {
+            width: 30%;
+            margin: 1em 0;
+            border: 1px solid #ccc;
+            padding: 1em;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .blog-post:hover {
+            transform: scale(1.05);
+        }
+
+        .blog-post img {
+            width: 100%;
+            height: auto;
+        }
+
+        #blog-details {
+            display: none;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header id="home">
+        <h1>Welcome to My Blog</h1>
+        <p>Sharing insights and stories</p>
+    </header>
+
+    <section id="blog">
+        <h2>Latest Posts</h2>
+        <div class="blog-list">
+            <div class="blog-post" onclick="showBlogDetails('post1')">
+                <img src="C:/Users/dell/Documents/index.html/Website-Design.jpg" alt="Blog 1">
+                <h3>Blog Post 1</h3>
+                <p>Crafting pixel-perfect designs with a focus on user experience.</p>
+            </div>
+            <div class="blog-post" onclick="showBlogDetails('post2')">
+                <img src="C:/Users/dell/Desktop/blog app/design 2.jpeg" alt="Blog 2">
+                <h3>Blog Post 2</h3>
+                <p>Explore our diverse range of blog posts covering everything from UX design to leadership lessons. Stay updated with the latest trends, expert insights, and practical tips to enhance your skills in design, technology, and team management. .</p>
+            </div>
+            <div class="blog-post" onclick="showBlogDetails('post3')">
+                <img src="C:/Users/dell/Desktop/blog app/design 5.jfif" alt="Blog 3">
+                <h3>Blog Post 3</h3>
+                <p>A serene moment on a picturesque college campus, where students walk through a beautifully arched brick corridor. The warm, inviting atmosphere is enhanced by natural light filtering through the arches, reflecting the timeless charm and academic tradition of the institution."</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog-details" class="hidden">
+        <h2>Blog Post Details</h2>
+        <div id="blog-content">
+            <!-- Dynamic content will be inserted here -->
+        </div>
+        <button onclick="hideBlogDetails()">Back to Blog List</button>
+    </section>
+
+    <footer id="contact">
+        <p>Contact us: email@example.com</p>
+        <p>&copy; 2024 My Blog</p>
+    </footer>
+
+    <script>
+        function showBlogDetails(postId) {
+            const blogContent = {
+                post1: {
+                    title: "Blog Post Title 1",
+                    content: "Full content of Blog Post 1..."
+                },
+                post2: {
+                    title: "Blog Post Title 2",
+                    content: "Full content of Blog Post 2..."
+                },
+                post3: {
+                    title: "Blog Post Title 3",
+                    content: "Full content of Blog Post 3..."
+                }
+            };
+
+            const blogDetails = blogContent[postId];
+            document.getElementById('blog-content').innerHTML = `
+                <h3>${blogDetails.title}</h3>
+                <p>${blogDetails.content}</p>
+            `;
+            document.getElementById('blog-details').classList.remove('hidden');
+            document.getElementById('blog').classList.add('hidden');
+        }
+
+        function hideBlogDetails() {
+            document.getElementById('blog-details').classList.add('hidden');
+            document.getElementById('blog').classList.remove('hidden');
+        }
+    </script>
+<footer class="footer">
+        <div>
+            <a href="https://twitter.com">Twitter</a>
+            <a href="https://linkedin.com">LinkedIn</a>
+            <a href="mailto:email@example.com">Email</a>
+        </div>
+        <div>
+            <p>&copy; 2024 FLIPR LAB</p>
+        </div>
+    </footer>
+</body>
+</html>
